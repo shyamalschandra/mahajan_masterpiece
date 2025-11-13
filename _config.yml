@@ -35,21 +35,22 @@ exclude:
   - PROJECT_SUMMARY.md
   - WEBPAGE_README.md
   - requirements.txt
-  - *.py
-  - *.pyc
+  - "*.py"
+  - "*.pyc"
   - __pycache__
-  - *.json
-  - *.png
-  - *.pdf
-  - *.tex
-  - *.out
-  - *.toc
-  - *.aux
-  - *.log
+  - "*.json"
+  - "*.png"
+  - "*.pdf"
+  - "*.tex"
+  - "*.out"
+  - "*.toc"
+  - "*.aux"
+  - "*.log"
   - LICENSE
 
 # GitHub Pages settings
-github: [metadata]
+github:
+  - metadata
 
 # Social/Contact
 github_username: shyamalschandra
@@ -57,9 +58,9 @@ github_username: shyamalschandra
 # Navigation
 navigation:
   - title: Paper
-    url: /paper.tex
+    url: /paper.pdf
   - title: Presentation
-    url: /presentation.tex
+    url: /presentation.pdf
   - title: README
     url: /README.md
   - title: Benchmark Guide
