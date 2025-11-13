@@ -1,0 +1,188 @@
+<!-- Comparison Charts for ECG Classification Models -->
+
+<div class="svg-container">
+    <svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="1000" height="600" fill="#f8f9fa"/>
+        
+        <!-- Title -->
+        <text x="500" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Model Comparison: Architecture vs. Performance</text>
+        
+        <!-- Axes -->
+        <line x1="100" y1="500" x2="900" y2="500" stroke="#333" stroke-width="2"/>
+        <line x1="100" y1="500" x2="100" y2="50" stroke="#333" stroke-width="2"/>
+        
+        <!-- Axis labels -->
+        <text x="500" y="550" text-anchor="middle" font-size="14" fill="#666">Computational Complexity</text>
+        <text x="30" y="275" text-anchor="middle" font-size="14" fill="#666" transform="rotate(-90 30 275)">Classification Accuracy</text>
+        
+        <!-- Grid lines -->
+        <line x1="200" y1="50" x2="200" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="400" y1="50" x2="400" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="600" y1="50" x2="600" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="800" y1="50" x2="800" y2="500" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="100" y1="400" x2="900" y2="400" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="100" y1="300" x2="900" y2="300" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="100" y1="200" x2="900" y2="200" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        <line x1="100" y1="100" x2="900" y2="100" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+        
+        <!-- Models as points -->
+        <!-- FFNN: Low complexity, Good accuracy -->
+        <circle cx="150" cy="350" r="12" fill="#e74c3c"/>
+        <text x="150" y="335" text-anchor="middle" font-size="12" fill="#333">FFNN</text>
+        
+        <!-- CNN: Low-Medium complexity, Good-Excellent accuracy -->
+        <circle cx="250" cy="280" r="12" fill="#3498db"/>
+        <text x="250" y="265" text-anchor="middle" font-size="12" fill="#333">CNN</text>
+        
+        <!-- LSTM: Medium complexity, Good-Excellent accuracy -->
+        <circle cx="400" cy="250" r="12" fill="#9b59b6"/>
+        <text x="400" y="235" text-anchor="middle" font-size="12" fill="#333">LSTM</text>
+        
+        <!-- Hopfield: Medium complexity, Good-Excellent accuracy -->
+        <circle cx="450" cy="260" r="12" fill="#f39c12"/>
+        <text x="450" y="245" text-anchor="middle" font-size="12" fill="#333">Hopfield</text>
+        
+        <!-- VAE: Medium complexity, Good-Excellent accuracy -->
+        <circle cx="500" cy="240" r="12" fill="#1abc9c"/>
+        <text x="500" y="225" text-anchor="middle" font-size="12" fill="#333">VAE</text>
+        
+        <!-- Transformer: High complexity, Excellent accuracy -->
+        <circle cx="700" cy="150" r="12" fill="#2ecc71"/>
+        <text x="700" y="135" text-anchor="middle" font-size="12" fill="#333">Transformer</text>
+        
+        <!-- 3stageFormer: Highest complexity, Excellent+ accuracy -->
+        <circle cx="850" cy="100" r="12" fill="#e67e22"/>
+        <text x="850" y="85" text-anchor="middle" font-size="12" fill="#333">3stage</text>
+        
+        <!-- Legend -->
+        <rect x="750" y="50" width="200" height="120" fill="white" stroke="#ddd" stroke-width="1"/>
+        <text x="850" y="70" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Legend</text>
+        <circle cx="770" cy="90" r="6" fill="#e74c3c"/>
+        <text x="790" y="95" font-size="11" fill="#333">Feedforward NN</text>
+        <circle cx="770" cy="110" r="6" fill="#3498db"/>
+        <text x="790" y="115" font-size="11" fill="#333">CNN</text>
+        <circle cx="770" cy="130" r="6" fill="#9b59b6"/>
+        <text x="790" y="135" font-size="11" fill="#333">LSTM</text>
+        <circle cx="770" cy="150" r="6" fill="#f39c12"/>
+        <text x="790" y="155" font-size="11" fill="#333">Hopfield</text>
+        <circle cx="770" cy="170" r="6" fill="#1abc9c"/>
+        <text x="790" y="175" font-size="11" fill="#333">VAE</text>
+    </svg>
+</div>
+
+<div class="svg-container">
+    <svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="1000" height="500" fill="#f8f9fa"/>
+        
+        <!-- Title -->
+        <text x="500" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Accuracy vs. Efficiency Trade-offs</text>
+        
+        <!-- Axes -->
+        <line x1="100" y1="400" x2="900" y2="400" stroke="#333" stroke-width="2"/>
+        <line x1="100" y1="400" x2="100" y2="50" stroke="#333" stroke-width="2"/>
+        
+        <!-- Axis labels -->
+        <text x="500" y="450" text-anchor="middle" font-size="14" fill="#666">Training Speed (Fast → Slow)</text>
+        <text x="30" y="225" text-anchor="middle" font-size="14" fill="#666" transform="rotate(-90 30 225)">Classification Accuracy (Good → Excellent)</text>
+        
+        <!-- Grid lines -->
+        <line x1="200" y1="50" x2="200" y2="400" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="400" y1="50" x2="400" y2="400" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="600" y1="50" x2="600" y2="400" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="800" y1="50" x2="800" y2="400" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="100" y1="300" x2="900" y2="300" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="100" y1="200" x2="900" y2="200" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="100" y1="100" x2="900" y2="100" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3"/>
+        
+        <!-- Models positioned by accuracy and speed -->
+        <!-- FFNN: Fastest, Good accuracy -->
+        <circle cx="150" cy="320" r="18" fill="#e74c3c" opacity="0.8"/>
+        <text x="150" y="305" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">FFNN</text>
+        <text x="150" y="360" text-anchor="middle" font-size="10" fill="#666">Fastest</text>
+        
+        <!-- CNN: Fast, Good-Excellent accuracy -->
+        <circle cx="250" cy="250" r="18" fill="#3498db" opacity="0.8"/>
+        <text x="250" y="235" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">CNN</text>
+        <text x="250" y="290" text-anchor="middle" font-size="10" fill="#666">Best Balance</text>
+        
+        <!-- LSTM: Moderate, Good-Excellent accuracy -->
+        <circle cx="500" cy="220" r="18" fill="#9b59b6" opacity="0.8"/>
+        <text x="500" y="205" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">LSTM</text>
+        <text x="500" y="260" text-anchor="middle" font-size="10" fill="#666">Sequential</text>
+        
+        <!-- Hopfield: Moderate, Good-Excellent accuracy -->
+        <circle cx="550" cy="230" r="18" fill="#f39c12" opacity="0.8"/>
+        <text x="550" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Hopfield</text>
+        <text x="550" y="270" text-anchor="middle" font-size="10" fill="#666">Energy-based</text>
+        
+        <!-- VAE: Moderate, Good-Excellent accuracy -->
+        <circle cx="600" cy="210" r="18" fill="#1abc9c" opacity="0.8"/>
+        <text x="600" y="195" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">VAE</text>
+        <text x="600" y="250" text-anchor="middle" font-size="10" fill="#666">Explainable</text>
+        
+        <!-- Transformer: Moderate-Slow, Excellent accuracy -->
+        <circle cx="750" cy="120" r="18" fill="#2ecc71" opacity="0.8"/>
+        <text x="750" y="105" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Transformer</text>
+        <text x="750" y="160" text-anchor="middle" font-size="10" fill="#666">High Accuracy</text>
+        
+        <!-- 3stageFormer: Slowest, Excellent+ accuracy -->
+        <circle cx="850" cy="80" r="18" fill="#e67e22" opacity="0.8"/>
+        <text x="850" y="65" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">3stage</text>
+        <text x="850" y="120" text-anchor="middle" font-size="10" fill="#666">Best Accuracy</text>
+        
+        <!-- Sweet spot annotation -->
+        <ellipse cx="250" cy="250" rx="90" ry="50" fill="none" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" opacity="0.6"/>
+        <text x="250" y="320" text-anchor="middle" font-size="13" fill="#3498db" font-weight="bold">Sweet Spot: CNN</text>
+        
+        <!-- Efficiency frontier line -->
+        <path d="M 150,320 Q 250,250 850,80" fill="none" stroke="#667eea" stroke-width="2" stroke-dasharray="8,4" opacity="0.4"/>
+    </svg>
+</div>
+
+<div class="svg-container">
+    <svg width="1000" height="400" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background -->
+        <rect width="1000" height="400" fill="#f8f9fa"/>
+        
+        <!-- Title -->
+        <text x="500" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">Temporal Modeling Paradigms</text>
+        
+        <!-- Paradigm categories -->
+        <!-- Feature-based -->
+        <rect x="50" y="80" width="120" height="280" fill="#e74c3c" opacity="0.3" rx="5"/>
+        <text x="110" y="100" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Feature-based</text>
+        <text x="110" y="120" text-anchor="middle" font-size="12" fill="#666">FFNN</text>
+        
+        <!-- Attention-based -->
+        <rect x="200" y="60" width="200" height="300" fill="#2ecc71" opacity="0.3" rx="5"/>
+        <text x="300" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Attention-based</text>
+        <text x="300" y="100" text-anchor="middle" font-size="12" fill="#666">Transformer</text>
+        <text x="300" y="115" text-anchor="middle" font-size="12" fill="#666">3stageFormer</text>
+        
+        <!-- Convolution-based -->
+        <rect x="430" y="100" width="120" height="260" fill="#3498db" opacity="0.3" rx="5"/>
+        <text x="490" y="120" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Convolution</text>
+        <text x="490" y="140" text-anchor="middle" font-size="12" fill="#666">CNN</text>
+        
+        <!-- Recurrent -->
+        <rect x="580" y="90" width="120" height="270" fill="#9b59b6" opacity="0.3" rx="5"/>
+        <text x="640" y="110" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Recurrent</text>
+        <text x="640" y="130" text-anchor="middle" font-size="12" fill="#666">LSTM</text>
+        
+        <!-- Energy-based -->
+        <rect x="730" y="100" width="120" height="260" fill="#f39c12" opacity="0.3" rx="5"/>
+        <text x="790" y="120" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Energy-based</text>
+        <text x="790" y="140" text-anchor="middle" font-size="12" fill="#666">Hopfield</text>
+        
+        <!-- Generative -->
+        <rect x="880" y="70" width="120" height="290" fill="#1abc9c" opacity="0.3" rx="5"/>
+        <text x="940" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Generative</text>
+        <text x="940" y="110" text-anchor="middle" font-size="12" fill="#666">VAE</text>
+        
+        <!-- Legend -->
+        <text x="500" y="380" text-anchor="middle" font-size="12" fill="#666">Height represents modeling capacity / complexity</text>
+    </svg>
+</div>
+
