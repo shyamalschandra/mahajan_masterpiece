@@ -49,7 +49,8 @@ exclude:
   - LICENSE
 
 # GitHub Pages settings
-github: [metadata]
+github:
+  - metadata
 
 # Social/Contact
 github_username: shyamalschandra
