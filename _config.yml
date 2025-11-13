@@ -58,9 +58,9 @@ github_username: shyamalschandra
 # Navigation
 navigation:
   - title: Paper
-    url: /paper.tex
+    url: /paper.pdf
   - title: Presentation
-    url: /presentation.tex
+    url: /presentation.pdf
   - title: README
     url: /README.md
   - title: Benchmark Guide
