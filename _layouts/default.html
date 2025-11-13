@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="author" content="{{ site.author }}">
+    
+    <!-- SEO Tags -->
+    {% seo %}
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .authors {
+            font-size: 1em;
+            margin: 20px 0;
+        }
+
+        .affiliation {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        section {
+            margin: 60px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            margin: 30px 0 15px;
+            color: #764ba2;
+        }
+
+        .abstract {
+            background: #f8f9fa;
+            padding: 30px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .comparison-chart {
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .model-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: #667eea;
+        }
+
+        .model-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .model-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .model-card li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .model-card li:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            font-weight: 600;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+
+        table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        table tr:hover {
+            background: #e8e8ff;
+        }
+
+        .svg-container {
+            margin: 30px 0;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #2c3e50;
+            color: white;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .citation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .model-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .svg-container svg {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>{{ site.title }}</h1>
+            <p class="subtitle">A Comprehensive Study of Seven Deep Learning Approaches</p>
+            
+            <div class="authors">
+                <strong>{{ site.author }}</strong>
+            </div>
+            
+            <div class="affiliation">
+                {{ site.affiliation }}
+            </div>
+
+            <div class="links">
+                <a href="{{ '/paper.tex' | relative_url }}" target="_blank">📄 Paper (LaTeX)</a>
+                <a href="{{ '/presentation.tex' | relative_url }}" target="_blank">📊 Presentation (LaTeX)</a>
+                <a href="{{ '/README.md' | relative_url }}" target="_blank">📖 README</a>
+                <a href="{{ '/BENCHMARK_README.md' | relative_url }}" target="_blank">🔬 Benchmark Guide</a>
+                <a href="{{ '/PROJECT_SUMMARY.md' | relative_url }}" target="_blank">📋 Project Summary</a>
+                <a href="https://github.com/{{ site.github_username }}/mahajan_masterpiece" target="_blank">💻 Code Repository</a>
+                <a href="{{ '/benchmark.py' | relative_url }}" target="_blank">⚙️ Benchmark Script</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        {{ content }}
+    </div>
+
+    <footer>
+        <div class="container">
+            <p><strong>Author:</strong> {{ site.author }}</p>
+            <p><strong>Affiliation:</strong> {{ site.affiliation }}</p>
+            <p><strong>Funding:</strong> Sapana Micro Software Research Division</p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                Website design inspired by <a href="https://videopolicy.cs.columbia.edu/" target="_blank">Video Policy project</a> by <a href="https://www.cs.columbia.edu/~vondrick/" target="_blank">Carl Vondrick's</a> research group at Columbia University.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+                The Video Policy project demonstrates how video generation can be used as a proxy for robot policy learning, showing the power of generative models for understanding and predicting behavior. Similarly, this project explores how different deep learning architectures can be applied to ECG classification, with the VAE component demonstrating generative capabilities for explainable AI.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+                Reference: Liang, J., et al. (2025). "Video Generators are Robot Policies." <em>arXiv preprint arXiv:2508.00795</em>. <a href="https://videopolicy.cs.columbia.edu/" target="_blank">https://videopolicy.cs.columbia.edu/</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85em; opacity: 0.7;">
+                © 2025 {{ site.author }}. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
