@@ -35,17 +35,17 @@ exclude:
   - PROJECT_SUMMARY.md
   - WEBPAGE_README.md
   - requirements.txt
-  - *.py
-  - *.pyc
+  - "*.py"
+  - "*.pyc"
   - __pycache__
-  - *.json
-  - *.png
-  - *.pdf
-  - *.tex
-  - *.out
-  - *.toc
-  - *.aux
-  - *.log
+  - "*.json"
+  - "*.png"
+  - "*.pdf"
+  - "*.tex"
+  - "*.out"
+  - "*.toc"
+  - "*.aux"
+  - "*.log"
   - LICENSE
 
 # GitHub Pages settings
