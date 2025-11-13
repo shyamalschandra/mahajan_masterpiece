@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
+# GitHub Pages will use its own Jekyll version
+# Use github-pages gem which includes Jekyll and all plugins
 gem "github-pages", group: :jekyll_plugins
-gem "jekyll", "~> 4.3.0"
-gem "minima", "~> 2.5"
 
+# These plugins are included in github-pages, but listed for clarity
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap"
