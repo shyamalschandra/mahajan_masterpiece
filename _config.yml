@@ -1,0 +1,68 @@
+# Jekyll Configuration for GitHub Pages
+# Site settings
+title: "Comparative Analysis of Neural Network Architectures for ECG Classification"
+description: "A Comprehensive Study of Seven Deep Learning Approaches"
+author: "Shyamal Suhana Chandra"
+affiliation: "Sapana Micro Software, Research Division"
+# For project page under shyamalschandra account:
+# URL will be: https://shyamalschandra.github.io/mahajan_masterpiece/
+url: "https://shyamalschandra.github.io"
+baseurl: "/mahajan_masterpiece"
+
+# Alternative: If using custom domain or different setup, adjust accordingly:
+# url: "https://yourdomain.com"
+# baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .gitignore
+  - README.md
+  - BENCHMARK_README.md
+  - PROJECT_SUMMARY.md
+  - WEBPAGE_README.md
+  - requirements.txt
+  - *.py
+  - *.pyc
+  - __pycache__
+  - *.json
+  - *.png
+  - *.pdf
+  - *.tex
+  - *.out
+  - *.toc
+  - *.aux
+  - *.log
+  - LICENSE
+
+# GitHub Pages settings
+github: [metadata]
+
+# Social/Contact
+github_username: shyamalschandra
+
+# Navigation
+navigation:
+  - title: Paper
+    url: /paper.tex
+  - title: Presentation
+    url: /presentation.tex
+  - title: README
+    url: /README.md
+  - title: Benchmark Guide
+    url: /BENCHMARK_README.md
+  - title: Project Summary
+    url: /PROJECT_SUMMARY.md
