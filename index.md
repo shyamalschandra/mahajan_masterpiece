@@ -392,9 +392,18 @@ This work builds upon the following foundational research:
 - **Hopfield Network:** "Electrocardiogram (ECG) Signal Modeling and Noise Reduction Using Hopfield Neural Networks." *Engineering, Technology & Applied Science Research (ETASR)*, Vol. 3, No. 1, 2013. [Link](https://etasr.com/index.php/ETASR/article/view/243/156)
 - **VAE (FactorECG):** van de Leur, Rutger R., et al. (2022). "Improving explainability of deep neural network-based electrocardiogram interpretation using variational auto-encoders." *European Heart Journal - Digital Health*, 3(3), 2022. DOI: 10.1093/ehjdh/ztac038. [GitHub](https://github.com/UMCUtrecht-ECGxAI/ecgxai)
 
+## Inspiration
+
+This work is inspired by the seminal research by **Lloyd, M. D., et al. (2001)** on detecting ischemia in electrocardiograms using artificial neural networks, published in *Circulation*:
+
+> Lloyd, M. D., et al. (2001). "Detection of Ischemia in the Electrocardiogram Using Artificial Neural Networks." *Circulation*, 103(22), 2711-2716.  
+> DOI: [10.1161/01.CIR.103.22.2711](https://www.ahajournals.org/doi/10.1161/01.CIR.103.22.2711)
+
+This foundational work demonstrated the potential of neural networks for ECG analysis and classification, inspiring our comprehensive comparative study of modern deep learning architectures.
+
 ## References
 
-- Lloyd, M. D., et al. (2001). "Detection of Ischemia in the Electrocardiogram Using Artificial Neural Networks." *Circulation*, 103(22), 2711-2716.
+- Lloyd, M. D., et al. (2001). "Detection of Ischemia in the Electrocardiogram Using Artificial Neural Networks." *Circulation*, 103(22), 2711-2716. [DOI: 10.1161/01.CIR.103.22.2711](https://www.ahajournals.org/doi/10.1161/01.CIR.103.22.2711)
 - Ikram, Sunnia, et al. (2025). "Transformer-based ECG classification for early detection of cardiac arrhythmias." *Frontiers in Medicine*, 12, 1600855.
 - Tang, Xiaoya, Berquist, Jake, Steinberg, Benjamin A., and Tasdizen, Tolga. (2024). "Hierarchical Transformer for Electrocardiogram Diagnosis." *arXiv preprint arXiv:2411.00755*.
 - "Electrocardiogram (ECG) Signal Modeling and Noise Reduction Using Hopfield Neural Networks." *Engineering, Technology & Applied Science Research (ETASR)*, Vol. 3, No. 1, 2013. [Link](https://etasr.com/index.php/ETASR/article/view/243/156)
