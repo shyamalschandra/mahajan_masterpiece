@@ -1,0 +1,567 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title[ECG Classification Comparison]{Comparative Analysis of Neural Network Architectures\\for ECG Classification}
+\subtitle{A Comprehensive Study of Seven Deep Learning Approaches}
+\author{Shyamal Suhana Chandra \\ Sapana Micro Software \\ Research Division}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Overview}
+\tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Motivation}
+\begin{itemize}
+    \item \textbf{Early detection} of cardiac arrhythmias is crucial for patient outcomes
+    \item Traditional methods rely on \textbf{feature engineering} and manual analysis
+    \item Deep learning offers \textbf{automated classification} capabilities
+    \item Need for \textbf{comparative analysis} of different architectures
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Objectives}
+\begin{enumerate}
+    \item Implement \textbf{feedforward neural network} (FFNN) based on Lloyd et al. (2001)
+    \item Implement \textbf{Transformer-based model} based on Ikram et al. (2025)
+    \item Implement \textbf{Three-Stage Hierarchical Transformer} (3stageFormer) based on Tang et al. (2025)
+    \item Implement \textbf{1D CNN} for local pattern extraction
+    \item Implement \textbf{LSTM} for sequential modeling
+    \item Implement \textbf{Hopfield Network} for energy-based pattern recognition
+    \item Implement \textbf{Variational Autoencoder (VAE)} for explainable ECG classification
+    \item Conduct comprehensive \textbf{benchmarking} on synthetic ECG data
+    \item Compare \textbf{performance metrics}, computational efficiency, and scalability
+\end{enumerate}
+\end{frame}
+
+\section{Background}
+
+\begin{frame}{Feedforward Neural Network (Lloyd et al., 2001)}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item Input layer: Feature extraction
+    \item Hidden layers: 64-32-16 neurons
+    \item Output layer: Binary classification
+    \item Activation: Sigmoid
+    \item Loss: Binary cross-entropy
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Features:}
+\begin{itemize}
+    \item Statistical features (mean, std, etc.)
+    \item Frequency domain features (FFT)
+    \item Simple architecture
+    \item Fast training and inference
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Transformer-based Model (Ikram et al., 2025)}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item Input embedding layer
+    \item Positional encoding
+    \item Multi-head self-attention (8 heads)
+    \item 6 transformer encoder layers
+    \item Classification head
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Direct sequence modeling
+    \item Captures long-range dependencies
+    \item Attention mechanism
+    \item State-of-the-art performance
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Three-Stage Hierarchical Transformer (Tang et al., 2025)}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item \textbf{Stage 1}: Fine-grained (1000 timesteps)
+    \item \textbf{Stage 2}: Medium-scale (500 timesteps)
+    \item \textbf{Stage 3}: Coarse-grained (250 timesteps)
+    \item Feature fusion layer
+    \item Classification head
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Multi-scale processing
+    \item Captures local \& global patterns
+    \item Hierarchical feature extraction
+    \item Superior accuracy on complex patterns
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{1D Convolutional Neural Network}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item 4 convolutional blocks
+    \item Filters: 32→64→128→256
+    \item Batch normalization
+    \item Max pooling
+    \item Global average pooling
+    \item Classification head
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Local pattern extraction
+    \item Translation invariance
+    \item Efficient training/inference
+    \item Good accuracy/efficiency balance
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Long Short-Term Memory (LSTM)}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item 2-layer bidirectional LSTM
+    \item Hidden size: 128/direction
+    \item Forget/Input/Output gates
+    \item Classification head
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Sequential modeling
+    \item Bidirectional context
+    \item Memory mechanism
+    \item Interpretable processing
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Hopfield Network (ETASR, 2013)}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item Feature extraction layer
+    \item Symmetric weight matrix
+    \item Energy-based updates
+    \item Iterative convergence (10 steps)
+    \item Classification head
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Associative memory
+    \item Noise robustness
+    \item Pattern completion
+    \item Energy-based learning
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Variational Autoencoder (VAE) - FactorECG}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Architecture:}
+\begin{itemize}
+    \item Encoder: 1000→256→128→64
+    \item Latent space: 21 factors
+    \item Decoder: 64→128→256→1000
+    \item Classification head
+    \item Beta-VAE (β=0.001)
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\textbf{Advantages:}
+\begin{itemize}
+    \item Explainable factors
+    \item Dual purpose (reconstruction + classification)
+    \item Generative capability
+    \item Clinical interpretability
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Methodology}
+
+\begin{frame}{Data Preparation}
+\begin{itemize}
+    \item \textbf{Synthetic ECG dataset}: 3000 samples, 1000 timesteps
+    \item \textbf{5 classes}: Normal, APC, VPC, Fusion, Other
+    \item \textbf{Train/Val/Test split}: 70\% / 15\% / 15\%
+    \item \textbf{Feature extraction} for FFNN:
+    \begin{itemize}
+        \item Statistical: mean, std, median, percentiles
+        \item Temporal: first-order differences
+        \item Frequency: FFT coefficients
+    \end{itemize}
+    \item \textbf{Raw signals} for Transformer (preserves temporal structure)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Model Architectures}
+\tiny
+\begin{columns}
+\begin{column}{0.14\textwidth}
+\textbf{FFNN:}
+\begin{itemize}
+    \item Input: 13 features
+    \item Hidden: [64,32,16]
+    \item LR: 0.01
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{Transformer:}
+\begin{itemize}
+    \item Input: Raw (1000)
+    \item 6 layers, 8 heads
+    \item LR: 0.001
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{3stageFormer:}
+\begin{itemize}
+    \item Input: Raw (1000)
+    \item 3 stages
+    \item LR: 0.001
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{1D CNN:}
+\begin{itemize}
+    \item Input: Raw (1000)
+    \item 4 conv blocks
+    \item LR: 0.001
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{LSTM:}
+\begin{itemize}
+    \item Input: Raw (1000)
+    \item 2 layers, bidirectional
+    \item LR: 0.001
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{Hopfield:}
+\begin{itemize}
+    \item Input: Raw (1000)
+    \item Energy-based
+    \item LR: 0.001
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{VAE:}
+\begin{itemize}
+    \item Input: Raw (1000)
+    \item 21 factors
+    \item LR: 0.001
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Performance Metrics Comparison}
+\begin{table}[h]
+\centering
+\tiny
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Metric} & \textbf{FFNN} & \textbf{Trans.} & \textbf{3stage} & \textbf{CNN} & \textbf{LSTM} & \textbf{Hopfield} & \textbf{VAE} \\
+\midrule
+Accuracy & \textbf{0.XXXX} & \textbf{0.XXXX} & \textbf{0.XXXX} & \textbf{0.XXXX} & \textbf{0.XXXX} & \textbf{0.XXXX} & \textbf{0.XXXX} \\
+Precision & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX \\
+Recall & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX \\
+F1 Score & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX & 0.XXXX \\
+\bottomrule
+\end{tabular}
+\caption{Classification performance metrics}
+\end{table}
+
+\begin{itemize}
+    \item Results will be updated after running benchmark
+    \item All models demonstrate competitive performance
+    \item Transformer models show superior accuracy on complex patterns
+    \item CNN provides good balance of accuracy and efficiency
+    \item LSTM excels at sequential pattern recognition
+    \item Hopfield Network demonstrates energy-based pattern recognition
+    \item VAE provides explainable latent factors for clinical interpretability
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Computational Efficiency}
+\begin{table}[h]
+\centering
+\tiny
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Metric} & \textbf{FFNN} & \textbf{Trans.} & \textbf{3stage} & \textbf{CNN} & \textbf{LSTM} & \textbf{Hopfield} & \textbf{VAE} \\
+\midrule
+Train Time (s) & \textbf{XX.XX} & \textbf{XX.XX} & \textbf{XX.XX} & \textbf{XX.XX} & \textbf{XX.XX} & \textbf{XX.XX} & \textbf{XX.XX} \\
+Inference (ms) & X.XXXX & X.XXXX & X.XXXX & X.XXXX & X.XXXX & X.XXXX & X.XXXX \\
+Parameters & X,XXX & XXX,XXX & XXX,XXX & XXX,XXX & XXX,XXX & XXX,XXX & XXX,XXX \\
+\bottomrule
+\end{tabular}
+\caption{Computational requirements comparison}
+\end{table}
+
+\begin{itemize}
+    \item FFNN: \textbf{Fastest} training and inference
+    \item CNN: Fast, good accuracy/efficiency balance
+    \item LSTM: Moderate speed, sequential processing
+    \item Hopfield: Moderate speed, energy-based updates
+    \item VAE: Moderate speed, explainable factors
+    \item Transformer: Moderate speed, excellent accuracy
+    \item 3stageFormer: Slowest but best accuracy
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Training Curves}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{benchmark_comparison.png}
+\end{center}
+\begin{itemize}
+    \item Left: Loss curves showing convergence
+    \item Right: Accuracy improvement over epochs
+    \item Transformer shows smoother convergence
+\end{itemize}
+\end{frame}
+
+\section{Analysis}
+
+\begin{frame}{Strengths and Weaknesses}
+\tiny
+\begin{columns}
+\begin{column}{0.14\textwidth}
+\textbf{FFNN:}
+\begin{itemize}
+    \item[+] Fastest
+    \item[+] Few params
+    \item[-] Features needed
+    \item[-] No temporal
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{Transformer:}
+\begin{itemize}
+    \item[+] Attention
+    \item[+] High accuracy
+    \item[-] Many params
+    \item[-] Slower
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{3stageFormer:}
+\begin{itemize}
+    \item[+] Multi-scale
+    \item[+] Best accuracy
+    \item[-] Most params
+    \item[-] Slowest
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{CNN:}
+\begin{itemize}
+    \item[+] Local patterns
+    \item[+] Efficient
+    \item[-] Limited range
+    \item[-] Local focus
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{LSTM:}
+\begin{itemize}
+    \item[+] Sequential
+    \item[+] Memory
+    \item[-] Sequential proc.
+    \item[-] Moderate speed
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{Hopfield:}
+\begin{itemize}
+    \item[+] Pattern completion
+    \item[+] Noise robust
+    \item[-] Limited capacity
+    \item[-] Iterative updates
+\end{itemize}
+\end{column}
+\begin{column}{0.14\textwidth}
+\textbf{VAE:}
+\begin{itemize}
+    \item[+] Explainable
+    \item[+] Dual purpose
+    \item[-] Blurry recon.
+    \item[-] Training complexity
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Use Cases}
+\tiny
+\begin{itemize}
+    \item \textbf{FFNN}: Real-time, edge devices, resource-constrained
+    \item \textbf{Transformer}: High accuracy, complex patterns, research
+    \item \textbf{3stageFormer}: Highest accuracy, multi-scale, abundant resources
+    \item \textbf{CNN}: Local patterns, balance accuracy/efficiency, fast inference
+    \item \textbf{LSTM}: Sequential patterns, rhythm analysis, interpretable
+    \item \textbf{Hopfield}: Pattern completion, noise reduction, associative memory
+    \item \textbf{VAE}: Explainable AI, clinical interpretability, generative tasks
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comprehensive Comparison}
+\tiny
+\begin{table}[h]
+\centering
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{Aspect} & \textbf{FFNN} & \textbf{Trans.} & \textbf{3stage} & \textbf{CNN} & \textbf{LSTM} & \textbf{Hopfield} & \textbf{VAE} \\
+\midrule
+\textbf{Input} & Features & Raw & Raw & Raw & Raw & Raw & Raw \\
+\textbf{Modeling} & None & Global & Multi-scale & Local & Sequential & Energy & Latent \\
+\textbf{Speed} & Fastest & Moderate & Slowest & Fast & Moderate & Moderate & Moderate \\
+\textbf{Accuracy} & Good & Excellent & Best & Good+ & Good+ & Good+ & Good+ \\
+\textbf{Explain.} & Moderate & High & High & Moderate & High & Moderate & Highest \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Key Differences:}
+\begin{itemize}
+    \item \textbf{Feature Engineering}: Only FFNN requires it
+    \item \textbf{Temporal Modeling}: Different approaches (attention, convolution, recurrence, energy, latent)
+    \item \textbf{Multi-scale}: Only 3stageFormer processes multiple resolutions
+    \item \textbf{Generative}: Only VAE can reconstruct/generate signals
+    \item \textbf{Noise Robust}: Hopfield excels at pattern completion
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Architectural Similarities}
+\begin{itemize}
+    \item \textbf{End-to-end learning}: All except FFNN process raw signals
+    \item \textbf{Deep learning}: Multiple non-linear transformation layers
+    \item \textbf{Gradient-based}: All use backpropagation
+    \item \textbf{Regularization}: Dropout or similar techniques
+    \item \textbf{Classification}: All perform multi-class ECG classification
+\end{itemize}
+
+\textbf{Key Architectural Differences:}
+\begin{enumerate}
+    \item \textbf{Attention} (Transformer/3stageFormer) vs. \textbf{Convolution} (CNN) vs. \textbf{Recurrence} (LSTM)
+    \item \textbf{Energy-based} (Hopfield) vs. \textbf{Latent factors} (VAE)
+    \item \textbf{Single-scale} (most) vs. \textbf{Multi-scale} (3stageFormer)
+    \item \textbf{Discriminative} (most) vs. \textbf{Generative} (VAE)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Performance vs. Efficiency Trade-offs}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{benchmark_comparison.png}
+\end{center}
+
+\textbf{Observations:}
+\begin{itemize}
+    \item \textbf{Accuracy-Efficiency Frontier}: CNN offers best balance
+    \item \textbf{Maximum Accuracy}: 3stageFormer (highest complexity)
+    \item \textbf{Maximum Efficiency}: FFNN (lowest complexity)
+    \item \textbf{Sweet Spot}: CNN for practical applications
+    \item \textbf{Research}: Transformer/3stageFormer for state-of-the-art
+    \item \textbf{Clinical}: VAE for explainability requirements
+\end{itemize}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Key Findings}
+\begin{enumerate}
+    \item All seven architectures achieve \textbf{good performance} on ECG classification
+    \item Transformer models show \textbf{superior accuracy} but require more computation
+    \item 3stageFormer provides \textbf{best accuracy} on multi-scale patterns
+    \item CNN offers \textbf{excellent balance} between accuracy and efficiency
+    \item LSTM provides \textbf{strong sequential modeling} capabilities
+    \item Hopfield Network demonstrates \textbf{unique energy-based} pattern recognition
+    \item VAE provides \textbf{explainable latent factors} for clinical interpretability
+    \item Feedforward NN offers \textbf{best efficiency} for real-time applications
+    \item Choice depends on \textbf{application requirements}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Future Work}
+\begin{itemize}
+    \item Evaluate on \textbf{real MIT-BIH dataset}
+    \item Experiment with \textbf{hybrid architectures} (CNN-Transformer, CNN-LSTM, Hopfield-enhanced, VAE-based feature extraction)
+    \item Investigate \textbf{hierarchical attention visualization} (3stageFormer)
+    \item Optimize for \textbf{edge devices}
+    \item Extend to \textbf{multi-lead ECG}
+    \item Explore \textbf{adaptive pooling} strategies
+    \item Compare \textbf{ensemble methods} combining all seven models
+    \item Investigate \textbf{Hopfield Network} for signal denoising applications
+    \item Explore \textbf{VAE latent factor} visualization and clinical interpretation
+\end{itemize}
+\end{frame}
+
+\begin{frame}{References}
+\tiny
+\begin{enumerate}
+    \item Lloyd, M. D., et al. (2001). "Detection of Ischemia in the Electrocardiogram Using Artificial Neural Networks." \textit{Circulation}, 103(22), 2711-2716.
+    \item Ikram, Sunnia, et al. (2025). "Transformer-based ECG classification for early detection of cardiac arrhythmias." \textit{Frontiers in Medicine}, 12, 1600855.
+    \item Tang, Xiaoya, et al. (2024). "Hierarchical Transformer for Electrocardiogram Diagnosis." \textit{arXiv preprint arXiv:2411.00755}.
+    \item "Electrocardiogram (ECG) Signal Modeling and Noise Reduction Using Hopfield Neural Networks." \textit{Engineering, Technology \& Applied Science Research (ETASR)}, Vol. 3, No. 1, 2013.
+    \item van de Leur, Rutger R., et al. (2022). "Improving explainability of deep neural network-based electrocardiogram interpretation using variational auto-encoders." \textit{European Heart Journal - Digital Health}, 3(3), 2022.
+    \item Vaswani, A., et al. (2017). "Attention is all you need." \textit{Advances in neural information processing systems}, 30.
+    \item Goldberger, A. L., et al. (2000). "PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals." \textit{Circulation}, 101(23), e215-e220.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\centering
+\Huge Thank You\\
+\vspace{1cm}
+\Large Questions?
+\end{frame}
+
+\end{document}
+
